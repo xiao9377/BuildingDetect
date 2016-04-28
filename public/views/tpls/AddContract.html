@@ -1,0 +1,216 @@
+<div class="col-md-10">
+    <div class="panel panel-default">
+        <div class="panel-heading">新增合同——{{project.name}}</div>
+        <div class="panel-body">
+            <div class="form-group col-lg-offset-1 col-md-offset-1 col-md-12">
+                <label for="add-contract-detectItem" class="col-lg-2 col-sm-2 control-label">附件上传</label>
+                <div class="col-lg-4 col-md-5">
+                    <input type="file" nv-file-select="" uploader="uploader"/>
+                </div>
+            </div>
+            <form name="addContractForm" class="form-horizontal" role="form">
+
+                <div class="form-group">
+                    <label for="add-contract-id" class="col-lg-2 col-sm-2 control-label">合同编号</label>
+                    <div class="col-lg-4 col-md-5">
+                        <input type="text" class="form-control" id="add-contract-id" name="newContractId" ng-model="newContract.id">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="add-contract-name" class="col-lg-2 col-sm-2 control-label">合同名称*</label>
+                    <div class="col-lg-8 col-md-8">
+                        <input type="text" class="form-control" id="add-contract-name" name="newContractName" ng-model="newContract.name" required>
+                        <small class="error" ng-show="addContractForm.newContractName.$error.required && addContractForm.newContractName.$dirty">
+                            合同名称名称不能为空</small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="add-contract-client" class="col-lg-2 col-sm-2 control-label">委托方*</label>
+                    <div class="col-lg-8 col-md-8">
+                        <input type="text" class="form-control" id="add-contract-client" name="newContractClient" ng-model="newContract.client" required>
+                        <small class="error"
+                               ng-show="addContractForm.newContractClient.$error.required && addContractForm.newContractClient.$dirty">委托方不能为空</small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="add-contract-type" class="col-lg-2 col-sm-2 control-label">合同类型*</label>
+                    <div class="col-lg-4 col-md-5">
+                        <input type="text" class="form-control" id="add-contract-type" name="newContractType" ng-model="newContract.type" required>
+                        <small class="error" ng-show="addContractForm.newContractType.$error.required && addContractForm.newContractType.$dirty">
+                            合同类型不能为空</small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="add-contract-startDate" class="col-lg-2 col-sm-2 control-label">起始时间</label>
+                    <div class="col-lg-3 col-md-4">
+                        <ng-bs3-datepicker id="add-contract-startDate" data-ng-model='newContract.startDate' date-format="YYYY-MM-DD"
+                                           language="en"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="add-contract-endDate" class="col-lg-2 col-sm-2 control-label">结束时间</label>
+                    <div class="col-lg-3 col-md-4">
+                        <ng-bs3-datepicker id="add-contract-endDate" data-ng-model='newContract.endDate' date-format="YYYY-MM-DD"
+                                           language="en"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">合同状态</label>
+                    <div class="col-lg-8">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default">{{newContract.stateText}}</button>
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a ng-click="setContractState(0)">未检测</a></li>
+                                <li><a ng-click="setContractState(1)">检测中</a></li>
+                                <li><a ng-click="setContractState(2)">已完成</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">合同密级</label>
+                    <div class="col-lg-8">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default">{{contractSecretText}}</button>
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a ng-click="setContractSecret(1)">绝密</a></li>
+                                <li><a ng-click="setContractSecret(2)">机密</a></li>
+                                <li><a ng-click="setContractSecret(3)">秘密</a></li>
+                                <li><a ng-click="setContractSecret(4)">内部</a></li>
+                                <li><a ng-click="setContractSecret(5)">公开</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="add-contract-structurePoint" class="col-lg-2 col-sm-2 control-label">结构布点</label>
+                    <div class="col-lg-8">
+                        <textarea type="text" rows="3" class="form-control" id="add-contract-structurePoint" name="newContractStructurePoint"
+                                  ng-model="newContract.structurePoint"></textarea>
+                        <!--<small class="error" ng-show="addContractForm.newContractStructurePoint.$error.required && addContractForm.newContractStructurePoint.$dirty">-->
+                            <!--结构布点不能为空</small>-->
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="add-contract-detectItem" class="col-lg-2 col-sm-2 control-label">检测项目*</label>
+                    <div class="col-lg-8">
+                        <textarea type="text" rows="3" class="form-control" id="add-contract-detectItem" name="newContractDetectItem"
+                                  ng-model="newContract.detectItem" required></textarea>
+                        <small class="error" ng-show="addContractForm.newContractDetectItem.$error.required && addContractForm.newContractDetectItem.$dirty">
+                            检查项目不能为空</small>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="add-letter-remark" class="col-lg-2 col-sm-2 control-label">备注</label>
+                    <div class="col-lg-8">
+                        <textarea type="text" rows="2" class="form-control" id="add-letter-remark" ng-model="newContract.remark"/>
+                    </div>
+                </div>
+
+                <!--第一阶段-->
+                <div class="panel-body-row col-lg-offset-1 col-lg-10 col-md-12">
+                    <div class="col-md-2">
+                        <div class="input-group">
+                            <div>
+                                <input class="magic-checkbox" type="checkbox" id="id-first-step" value="option" ng-model="isFirstStep"
+                                       disabled="false">
+                                <label for="id-first-step">第一阶段</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class='input-group'>
+                            <span class="input-group-addon">时间节点</span>
+                            <ng-bs3-datepicker id="first-step-time" data-ng-model='payment.firstStep.time' date-format="YYYY-MM-DD"
+                                               language="en"/>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="first-step-fee">试验费用</span>
+                            <input type="number" class="form-control" aria-describedby="first-step-fee" ng-model="payment.firstStep.fee">
+                            <span class="input-group-addon">元</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!--第二阶段-->
+                <div class="panel-body-row col-lg-offset-1 col-lg-10 col-md-12">
+                    <div class="col-md-2">
+                        <div class="input-group">
+                            <div>
+                                <input class="magic-checkbox" type="checkbox" id="id-second-step" value="option" ng-model="isSecondStep">
+                                <label for="id-second-step">第二阶段</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class='input-group'>
+                            <span class="input-group-addon">时间节点</span>
+                            <ng-bs3-datepicker id="second-step-time" data-ng-model='payment.secondStep.time' date-format="YYYY-MM-DD"
+                                               language="en"/>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="second-step-fee">试验费用</span>
+                            <input type="number" class="form-control" aria-describedby="second-step-fee" ng-model="payment.secondStep.fee">
+                            <span class="input-group-addon">元</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!--第三阶段-->
+                <div class="panel-body-row col-lg-offset-1 col-lg-10 col-md-12">
+                    <div class="col-md-2">
+                        <div class="input-group">
+                            <div>
+                                <input class="magic-checkbox" type="checkbox" id="id-third-step" value="option" ng-model="isThirdStep">
+                                <label for="id-third-step">第三阶段</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class='input-group'>
+                            <span class="input-group-addon">时间节点</span>
+                            <ng-bs3-datepicker id="third-step-time" data-ng-model='payment.thirdStep.time' date-format="YYYY-MM-DD"
+                                               language="en"/>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="third-step-fee">试验费用</span>
+                            <input type="number" class="form-control" aria-describedby="third-step-fee" ng-model="payment.thirdStep.fee">
+                            <span class="input-group-addon">元</span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="panel-body-row panel-submit col-md-6 col-md-offset-5">
+                <input type="button" class="btn btn-success" value="提交" ng-disabled="addContractForm.$invalid" ng-click="checkInput()"/>
+                <input type="button" class="btn btn-danger" value="取消" ng-click="cancel()"/>
+            </div>
+        </div>
+    </div>
+
+</div>

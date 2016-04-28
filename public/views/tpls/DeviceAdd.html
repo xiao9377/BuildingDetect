@@ -1,0 +1,110 @@
+<div class="device-input col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">录入设备信息</div>
+        <div class="panel-body">
+            <form role="form" name="deviceAddForm">
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="device-id">项目序号<span
+                                class="glyphicon glyphicon-asterisk required-info"></span></span>
+                        <input type="text" class="form-control" aria-describedby="device-id" required
+                               ng-model="device.id">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="device-detectContent">检测内容<span
+                                class="glyphicon glyphicon-asterisk required-info"></span></span>
+                        <input type="text" class="form-control" aria-describedby="device-detectContent"
+                               ng-model="device.detectContent"
+                               required>
+                    </div>
+                </div>
+                <div class="margin-top10 col-md-12">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="device-standard">依据标准</span>
+                        <textarea class="form-control" aria-describedby="device-standard"
+                               data-ng-model="device.standard"
+                                ></textarea>
+                    </div>
+                </div>
+                <div class="margin-top10 col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="device-name">设备名称<span
+                                class="glyphicon glyphicon-asterisk required-info"></span></span>
+                        <input type="text" class="form-control" aria-describedby="device-name" ng-model="device.name"
+                               required>
+                    </div>
+                </div>
+                <div class="margin-top10 col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="device-version">设备型号<span
+                                class="glyphicon glyphicon-asterisk required-info"></span></span>
+                        <input type="text" class="form-control" aria-describedby="device-version"
+                               ng-model="device.version" required>
+                    </div>
+                </div>
+                <div class="margin-top10 col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="device-range">测试范围</span>
+                        <input type="text" class="form-control" aria-describedby="device-range"
+                               ng-model="device.range">
+                    </div>
+                </div>
+                <div class="margin-top10 col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="device-method">溯源方式<span
+                                class="glyphicon glyphicon-asterisk required-info"></span></span>
+                        <input type="text" class="form-control" aria-describedby="device-method"
+                               ng-model="device.method" required>
+                    </div>
+                </div>
+                <div class="margin-top10 col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="device-validDate">有效日期<span
+                                class="glyphicon glyphicon-asterisk required-info"></span></span>
+                        <ng-bs3-datepicker id="add-contract-startDate" data-ng-model='device.validDate'
+                                           date-format="YYYY-MM-DD" language="en"></ng-bs3-datepicker>
+                    </div>
+                </div>
+                <div class="margin-top10 col-md-12">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="device-result">确认结果</span>
+                        <input type="text" class="form-control" aria-describedby="device-result"
+                               ng-model="device.result">
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">上传附件</div>
+        <div class="panel-body">
+            <div class="col-md-12">
+                <!--<div class="col-md-6">-->
+                    <!--<div class="drop-zone" ng-show="uploader.isHTML5">-->
+                        <!--<div nv-file-drop="" uploader="uploader">-->
+                            <!--<div nv-file-over="" uploader="uploader" over-class="another-file-over-class" class="well upload-drop-zone">-->
+                                <!--将文件拖动至此-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="col-md-6">
+                    <input type="file" nv-file-select="" uploader="uploader"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="text-center">
+                <button class="btn btn-info" data-ng-disabled="deviceAddForm.$invalid" ng-click="checkPost()">提 交</button>
+                <button class="btn btn-default" ng-click="cancel()">取 消</button>
+            </div>
+        </div>
+    </div>
+</div>

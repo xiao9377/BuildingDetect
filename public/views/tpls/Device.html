@@ -1,0 +1,60 @@
+<div class="col-md-12">
+    <!--top toolbar start-->
+    <div class="btn-toolbar">
+        <div class="col-md-3">
+            <input type="text" placeholder="搜索..." class="form-control" ng-model="searchText"/>
+            <!--<span class="input-group-btn">-->
+            <!--<button type="button" class="btn btn-default">-->
+            <!--<em class="fa fa-search"></em>-->
+            <!--</button>-->
+            <!--</span>-->
+        </div>
+
+        <div style="float: right">
+            <div class="btn btn-success" ng-click="addDevice()">
+                添加设备
+            </div>
+        </div>
+    </div>
+    <!--top toolbar end-->
+
+    <!--contract table start-->
+    <table class="table table-striped table-bordered table-hover table-contract">
+        <thead>
+        <tr>
+            <th class="text-center th-index">序号</th>
+            <th class="text-center">检测内容</th>
+            <th class="text-center">项目序号</th>
+            <th class="text-center">设备名称</th>
+            <th class="text-center">设备型号</th>
+            <th class="text-center">测量范围</th>
+            <th class="text-center">有效日期</th>
+            <th class="text-center">附件下载</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-class="{deviceWarning: dateDiff(device.validDate)<=30}" ng-repeat="device in devices | filter:searchText" ng-dblclick="deviceDetail(device._id)">
+            <td class="text-center">
+                <span>{{$index + 1}}</span>
+            </td>
+            <td class="text-center">{{device.detectContent}}</td>
+            <td class="text-center">{{device.id}}</td>
+            <td class="text-center"><a ng-click="deviceDetail(device._id)">{{device.name}}</a></td>
+            <td class="text-center">{{device.version}}</td>
+            <td class="text-center">{{device.range}}</td>
+            <td class="text-center">{{device.validDate | date: 'yyyy-MM-dd'}}</td>
+            <td class="text-center"><a class="btn" data-ng-disabled="noAttachment(device.attachment)" ng-href="{{device.attachmentLink}}" target="_blank" style="padding: 0"><span class="glyphicon glyphicon-download-alt"></span></a></td>
+            <!--<td class="text-center">{{device.attachment}}</td>-->
+        </tr>
+        </tbody>
+    </table>
+    <!--contract table end-->
+
+    <!--pagination begin-->
+    <div class="text-center">
+        <pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize"
+                    boundary-links="true" rotate="false" num-pages="numPages" previous-text="上一页"
+                    next-text="下一页" first-text="首页" last-text="尾页" items-per-page="itemsPerPage"></pagination>
+    </div>
+    <!--pagination end-->
+</div>

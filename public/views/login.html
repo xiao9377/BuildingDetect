@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html ng-app="LoginApp">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="../components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../icons/logo.ico">
+</head>
+<body ng-controller="LoginController">
+<div id="loginBg">
+    <img src="../images/loginBg.jpg" height="100%" width="100%">
+</div>
+<form name="loginForm" id="loginForm">
+    <table width="500" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td colspan="3" align="center" style="background-color: #63bdcf; border-radius: 20px 20px 0 0;">
+                <h1>武汉明鉴信息管理系统</h1>
+            </td>
+        </tr>
+        <tr>
+            <td height="20px" colspan="3">
+            </td>
+        </tr>
+        <tr>
+            <td height="37" align="right">
+                <img src="../images/username.png" style="padding-right: 5px"/>
+            </td>
+            <td align="center" width="80">
+                用户名
+            </td>
+            <td height="37">
+                <input name="userName" class="" type="text" id="userName" ng-model="user.name"/>
+            </td>
+        </tr>
+        <tr>
+            <td height="50" align="right">
+                <img src="../images/psw.png"/>
+            </td>
+            <td align="center" width="80">
+                密&nbsp;&nbsp;&nbsp;&nbsp;码
+            </td>
+            <td height="50" width="300">
+                <input name="password" class="" type="password" id="password" ng-model="user.password"
+                       style="float: left;margin-right: 10px;"/><a
+                    href="" style="margin-top: 3px">
+                忘记了密码？</a>
+            </td>
+        </tr>
+        <tr>
+            <td height="43" align="right">
+                <img src="../images/identify.png"/>
+            </td>
+            <td align="center" width="80">
+                身&nbsp;&nbsp;&nbsp;&nbsp;份
+            </td>
+            <td height="43">
+                <input name="authority" id="optionsRadios1" type="radio" value=0 ng-model="select">管理员
+                <input name="authority" id="optionsRadios2" type="radio" value=1 ng-model="select">信息员
+                <input name="authority" id="optionsRadios3" type="radio" value=2 ng-model="select">普通职员
+                <input name="authority" id="optionsRadios4" type="radio" value=3 ng-model="select" ng-checked="true">无权限
+            </td>
+        </tr>
+        <tr>
+            <td align="center" colspan="3">
+                <span class="error" ng-show="showError">登录错误，请检查登录用户名、密码或身份</span>
+            </td>
+        </tr>
+        <tr>
+            <td height="62" colspan="3">
+                <input name="toLogin" id="toLogin" ng-click="submit()" type="image" src="../images/btnLogin.png">
+                <a id="toRegister" href="/register">无账户，先注册</a>
+            </td>
+        </tr>
+    </table>
+</form>
+<script type="text/javascript" src="../components/angular/angular.js"></script>
+<script type="text/javascript" src="../components/angular/angular-route.js"></script>
+<script type="text/javascript" src="../js/controllers/login.js"></script>
+</body>
+</html>

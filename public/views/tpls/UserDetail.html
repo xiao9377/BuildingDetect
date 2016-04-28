@@ -1,0 +1,62 @@
+<div class="user-detail col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            用户详细信息
+            <!--<a style="float: right" ng-click="editUser()"><span class="glyphicon glyphicon-edit">编辑</span></a>-->
+        </div>
+        <div class="panel-body">
+            <div class="employee-table col-md-8 col-md-offset-2">
+                <table class="table table-bordered text-center" ng-show="!isEdit">
+                    <tbody>
+                    <tr>
+                        <td class="user-label"><span>用户ID</span></td>
+                        <td>
+                            <span>{{user._id}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="user-label"><span>用户名</span></td>
+                        <td><span>{{user.name}}</span></td>
+                    </tr>
+                    <tr>
+                        <!--<td class="user-label"><span>权  限</span></td>-->
+                        <!--<td><span ng-bind="userAuth(user.authority)"></span></td>-->
+                        <td class="user-label"><span>权  限</span></td>
+                        <td>
+                            <label class="radio-inline">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio0" value="0" ng-model="user.authority"> 管理员
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" ng-model="user.authority"> 信息员
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2" ng-model="user.authority"> 普通员工
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3" ng-model="user.authority"> 无权限
+                            </label>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="text-center" ng-show="!isEdit">
+                <!--<button class="btn btn-danger" ng-click="deleteUser(user._id)">删除用户</button>-->
+                <button class="btn btn-success" ng-click="updateAuth(user._id)">确 定
+                </button>
+                <button class="btn btn-info" ng-click="back()">返 回</button>
+            </div>
+            <!--<div class="text-center" ng-show="isEdit">-->
+                <!--<button class="btn btn-success" ng-click="updateAuth(user._id)">确 定-->
+                <!--</button>-->
+                <!--<button class="btn btn-info" ng-click="cancel()">取 消</button>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>

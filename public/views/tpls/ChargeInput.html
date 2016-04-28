@@ -1,0 +1,161 @@
+<div class="col-md-10 charge-input">
+    <div class="panel panel-default">
+        <div class="panel-heading">收款登记</div>
+        <div class="panel-body">
+            <div class="col-md-12">
+                <div class="contract-detail-item">
+                    <span>合同编号：</span>
+                    <span>{{contract.id}}</span>
+                </div>
+                <div class="contract-detail-item">
+                    <span>合同名称：</span>
+                    <span>{{contract.name}}</span>
+                </div>
+                <div class="contract-detail-item">
+                    <span>委托方：</span>
+                    <span>{{contract.client}}</span>
+                </div>
+                <div class="contract-detail-item">
+                    <span>检测类型：</span>
+                    <span>{{contract.type}}</span>
+                </div>
+                <hr/>
+            </div>
+            <div class="col-md-4" ng-repeat="item in contract.payment">
+                <div class="contract-detail-item">
+                    <span>阶段：{{$index + 1}}</span>
+                </div>
+
+                <div class="contract-detail-item">
+                    <span>时间节点：</span>
+                    <span>{{item.time}}</span>
+                </div>
+
+                <div class="contract-detail-item">
+                    <span>付款金额：</span>
+                    <span>{{item.fee}}</span>
+                </div>
+
+                <div class="contract-detail-item">
+                    <span>状态：</span>
+                    <span ng-show="!item.isFinished">未付款</span>
+                    <span ng-show="item.isFinished">已付款</span>
+                </div>
+                <hr/>
+            </div>
+            <!-- 已完成收款部分 -->
+            <div class="panel-payment col-lg-10 col-md-12" ng-repeat="item in contract.payment"
+                 ng-show="item.isFinished">
+                <div class="col-md-2">
+                    <label>第{{$index + 1}}阶段</label>
+                </div>
+                <div class="col-md-5">
+                    <div class='input-group'>
+                        <span class="input-group-addon">时间节点</span>
+                        <span class="form-control">{{item.time}}</span>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="input-group">
+                        <span class="input-group-addon">本次收款</span>
+                        <span class="form-control">{{item.fee}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 未完成收款部分 -->
+            <div class="panel-payment col-lg-10 col-md-12"
+                 ng-show="!contract.payment[0].isFinished">
+                <div class="col-md-2">
+                    <div class="input-group">
+                        <div>
+                            <input class="magic-checkbox" type="checkbox" id="id-first-step" value="option"
+                                   ng-model="isFirstStep">
+                            <label for="id-first-step">第一阶段</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class='input-group'>
+                        <span class="input-group-addon">时间节点</span>
+                        <ng-bs3-datepicker id="first-step-time" data-ng-model='payment.firstStep.time'
+                                           date-format="YYYY-MM-DD"
+                                           language="en"/>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="first-step-fee">本次收款</span>
+                        <input type="number" class="form-control" aria-describedby="first-step-fee"
+                               ng-model="payment.firstStep.fee">
+                        <span class="input-group-addon">元</span>
+                    </div>
+                </div>
+            </div>
+            <!--第二阶段-->
+            <div class="panel-payment col-md-10" ng-show="!contract.payment[1].isFinished">
+                <div class="col-md-2">
+                    <div class="input-group">
+                        <div>
+                            <input class="magic-checkbox" type="checkbox" id="id-second-step" value="option"
+                                   ng-model="isSecondStep">
+                            <label for="id-second-step">第二阶段</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class='input-group'>
+                        <span class="input-group-addon">时间节点</span>
+                        <ng-bs3-datepicker id="second-step-time" data-ng-model='payment.secondStep.time'
+                                           date-format="YYYY-MM-DD"
+                                           language="en"/>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="second-step-fee">本次收款</span>
+                        <input type="number" class="form-control" aria-describedby="second-step-fee"
+                               ng-model="payment.secondStep.fee">
+                        <span class="input-group-addon">元</span>
+                    </div>
+                </div>
+            </div>
+
+            <!--第三阶段-->
+            <div class="panel-payment col-md-10" ng-show="!contract.payment[2].isFinished">
+                <div class="col-md-2">
+                    <div class="input-group">
+                        <div>
+                            <input class="magic-checkbox" type="checkbox" id="id-third-step" value="option"
+                                   ng-model="isThirdStep">
+                            <label for="id-third-step">第三阶段</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class='input-group'>
+                        <span class="input-group-addon">时间节点</span>
+                        <ng-bs3-datepicker id="third-step-time" data-ng-model='payment.thirdStep.time'
+                                           date-format="YYYY-MM-DD"
+                                           language="en"/>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="third-step-fee">本次收款</span>
+                        <input type="number" class="form-control" aria-describedby="third-step-fee"
+                               ng-model="payment.thirdStep.fee">
+                        <span class="input-group-addon">元</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading text-center">
+            <button class="btn btn-success" ng-click="updatePayment()">提交</button>
+            <button class="btn btn-info" ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>

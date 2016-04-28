@@ -1,0 +1,100 @@
+<!--admin side menu start-->
+<div class="col-md-2" ng-controller="AdminContractSideMenuController">
+    <div class="panel-group table-responsive" role="tablist">
+        <!--blog menu start-->
+        <div class="panel panel-default leftMenu">
+            <!-- 利用data-target指定要折叠的分组列表 -->
+            <div class="panel-heading" id="collapseListGroupHeadingBlog" data-toggle="collapse"
+                 data-target="#collapseListGroupBlog" role="tab" ng-click="clickBlogItem()">
+                <h4 class="panel-title">
+                    合同管理
+                        <span class="glyphicon right"
+                              ng-class="{'glyphicon-chevron-up':groupBlog, 'glyphicon-chevron-down':!groupBlog}"></span>
+                </h4>
+            </div>
+            <!-- .panel-collapse和.collapse标明折叠元素 .in表示要显示出来 -->
+            <div id="collapseListGroupBlog" class="panel-collapse collapse" role="tabpanel"
+                 aria-labelledby="collapseListGroupHeadingBlog">
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="item in contractMenu">
+                        <a class="menu-item-left" ng-click="goToContractStateList(item.url)">
+                            <i class="fa fa-hand-o-right"></i><span>{{item.name}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--blog menu end-->
+
+        <!--essay menu end-->
+        <div class="panel panel-default leftMenu">
+            <div class="panel-heading" id="collapseListGroupHeadingEssay" data-toggle="collapse"
+                 data-target="#collapseListGroupEssay" role="tab" ng-click="clickEssayItem()">
+                <h4 class="panel-title">
+                    检测报告
+                        <span class="glyphicon right"
+                              ng-class="{'glyphicon-chevron-up':groupEssay, 'glyphicon-chevron-down':!groupEssay}"></span>
+                </h4>
+            </div>
+            <div id="collapseListGroupEssay" class="panel-collapse collapse" role="tabpanel"
+                 aria-labelledby="collapseListGroupHeadingEssay">
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="item in reportMenu">
+                        <a class="menu-item-left" ui-sref="{{item.url}}">
+                            <i class="fa fa-hand-o-right"></i><span>{{item.name}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--essay menu end-->
+
+        <!--state menu start-->
+        <div class="panel panel-default leftMenu">
+            <div class="panel-heading" id="collapseListGroupHeadingState" data-toggle="collapse"
+                 data-target="#collapseListGroupState" role="tab" ng-click="clickStateItem()">
+                <h4 class="panel-title">
+                    文件管理
+                        <span class="glyphicon right"
+                              ng-class="{'glyphicon-chevron-up':groupState, 'glyphicon-chevron-down':!groupState}"></span>
+                </h4>
+            </div>
+            <div id="collapseListGroupState" class="panel-collapse collapse" role="tabpanel"
+                 aria-labelledby="collapseListGroupHeadingState">
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="item in letterMenu">
+                        <a class="menu-item-left" ui-sref="{{item.url}}">
+                            <i class="fa fa-hand-o-right"></i><span>{{item.name}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--state menu end-->
+
+        <!--project menu start-->
+        <div class="panel panel-default leftMenu">
+            <div class="panel-heading" id="collapseListGroupHeadingProject" data-toggle="collapse"
+                 data-target="#collapseListGroupProject" role="tab" ng-click="clickStateItem()">
+                <h4 class="panel-title">
+                    工程项目
+                        <span class="glyphicon right"
+                              ng-class="{'glyphicon-chevron-up':groupProject, 'glyphicon-chevron-down':!groupProject}"></span>
+                </h4>
+            </div>
+            <div id="collapseListGroupProject" class="panel-collapse collapse" role="tabpanel"
+                 aria-labelledby="collapseListGroupHeadingProject">
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="item in projectMenu">
+                        <a class="menu-item-left" ui-sref="{{item.url}}">
+                            <i class="fa fa-hand-o-right"></i><span>{{item.name}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--project menu end-->
+
+    </div>
+</div>
+<!--admin side menu end-->

@@ -1,0 +1,23 @@
+{
+  "name": "BuildingDetect",
+  "description": "building detection project",
+  "main": "",
+  "authors": [
+    "D9Lab"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "building",
+    "detection"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

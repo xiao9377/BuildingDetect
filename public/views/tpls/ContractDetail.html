@@ -1,0 +1,326 @@
+<div class="col-md-10 contract-detail">
+
+    <!--操作栏-->
+    <div class="col-md-12 contract-operate">
+        <div class="btn btn-info" ng-click="addLetter()">
+            添加联系函
+        </div>
+        <div class="btn btn-warning" ng-click="addReport()">
+            添加检测报告
+        </div>
+    </div>
+    <!--操作栏-->
+
+    <!--添加联系函-->
+    <div class="col-md-12 add-box" ng-show="showAddLetter">
+        <div class="panel panel-default">
+            <div class="panel-heading">新联系函</div>
+            <div class="panel-body">
+                <form name="addLetterForm" class="form-horizontal" role="form">
+
+                    <div class="form-group">
+                        <label for="add-letter-name" class="col-lg-2 col-sm-2 control-label">联系函名称*</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" id="add-letter-name" name="newLetterName" ng-model="newLetter.name" required>
+                            <small class="error" ng-show="addLetterForm.newLetterName.$error.required && addLetterForm.newLetterName.$dirty">名称不能为空</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="add-letter-client" class="col-lg-2 col-sm-2 control-label">联系单位*</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" id="add-letter-client" name="newLetterContact" ng-model="newLetter.contact"
+                                   required>
+                            <small class="error" ng-show="addLetterForm.newLetterContact.$error.required && addLetterForm.newLetterContact.$dirty">联系单位不能为空</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="add-letter-date" class="col-lg-2 col-sm-2 control-label">发起时间</label>
+                        <div class="col-lg-2">
+                            <ng-bs3-datepicker id="add-letter-date" data-ng-model='newLetter.date' name="newLetterDate" date-format="YYYY-MM-DD"
+                                               language="en"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-2 col-sm-2 control-label">联系函密级</label>
+                        <div class="col-lg-8">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default">{{newLetterSecretText}}</button>
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="caret"></span>
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a ng-click="setLetterSecret(1)">绝密</a></li>
+                                    <li><a ng-click="setLetterSecret(2)">机密</a></li>
+                                    <li><a ng-click="setLetterSecret(3)">秘密</a></li>
+                                    <li><a ng-click="setLetterSecret(4)">内部</a></li>
+                                    <li><a ng-click="setLetterSecret(5)">公开</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="add-letter-content" class="col-lg-2 col-sm-2 control-label">联系函内容*</label>
+                        <div class="col-lg-8">
+                            <textarea type="text" rows="6" class="form-control" id="add-letter-content" name="newLetterContent"
+                                      ng-model="newLetter.content" required></textarea>
+                            <small class="error" ng-show="addLetterForm.newLetterContent.$error.required && addLetterForm.newLetterContent.$dirty">
+                                联系内容不能为空</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="add-letter-remark" class="col-lg-2 col-sm-2 control-label">备注</label>
+                        <div class="col-lg-8">
+                            <textarea type="text" rows="2" class="form-control" id="add-letter-remark" ng-model="newLetter.remark"/>
+                        </div>
+                    </div>
+
+                    <div class="panel-body-row col-md-6 col-md-offset-5">
+                        <input type="button" class="btn btn-success" value="提交" ng-disabled="addLetterForm.$invalid" ng-click="saveLetter()"/>
+                        <input type="button" class="btn btn-danger" value="取消" ng-click="initial()"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--添加联系函-->
+
+    <!--添加检测报告-->
+    <div class="col-md-12 add-box" ng-show="showAddReport">
+        <div class="panel panel-default">
+            <div class="panel-heading">新检测报告</div>
+            <div class="panel-body">
+                <form name="addReportForm" class="form-horizontal" role="form">
+
+                    <div class="form-group">
+                        <label for="add-report-name" class="col-lg-2 col-sm-2 control-label">报告名称*</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" id="add-report-name" name="newReportName" ng-model="newReport.name" required>
+                            <small class="error" ng-show="addReportForm.newReportName.$error.required && addReportForm.newReportName.$dirty">名称不能为空</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="add-report-type" class="col-lg-2 col-sm-2 control-label">报告类型*</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" id="add-report-type" name="newReportType" ng-model="newReport.type" required>
+                            <small class="error" ng-show="addReportForm.newReportType.$error.required && addReportForm.newReportType.$dirty">报告类型不能为空
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="add-report-date" class="col-lg-2 col-sm-2 control-label">报告时间</label>
+                        <div class="col-lg-2">
+                            <ng-bs3-datepicker id="add-report-date" data-ng-model='newReport.date' date-format="YYYY-MM-DD"
+                                               language="en"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-2 col-sm-2 control-label">报告密级</label>
+                        <div class="col-lg-8">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default">{{newReportSecretText}}</button>
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="caret"></span>
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a ng-click="setReportSecret(1)">绝密</a></li>
+                                    <li><a ng-click="setReportSecret(2)">机密</a></li>
+                                    <li><a ng-click="setReportSecret(3)">秘密</a></li>
+                                    <li><a ng-click="setReportSecret(4)">内部</a></li>
+                                    <li><a ng-click="setReportSecret(5)">公开</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="add-report-amount" class="col-lg-2 col-sm-2 control-label">工作量*</label>
+                        <div class="col-lg-8">
+                            <textarea type="text" rows="6" class="form-control" id="add-report-amount" name="newReportAmount"
+                                      ng-model="newReport.amount" required></textarea>
+                            <small class="error"
+                                   ng-show="addReportForm.newReportAmount.$error.required && addReportForm.newReportAmount.$dirty">工作量不能为空
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="add-report-remark" class="col-lg-2 col-sm-2 control-label">备注</label>
+                        <div class="col-lg-8">
+                            <textarea type="text" rows="2" class="form-control" id="add-report-remark" ng-model="newReport.remark"/>
+                        </div>
+                    </div>
+
+                    <div class="panel-body-row col-md-6 col-md-offset-5">
+                        <input type="button" class="btn btn-success" value="提交" ng-disabled="addReportForm.$invalid" ng-click="saveReport()"/>
+                        <input type="button" class="btn btn-danger" value="取消" ng-click="initial()"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--添加检测报告-->
+
+    <!--合同概况-->
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                合同概况
+                <a class="btn btn-success" style="float: right; padding: 2px 4px" ng-click="updateState()">更新合同状态</a>
+            </div>
+            <div class="panel-body">
+                <div class="contract-detail-item">
+                    <span>合同编号：</span>
+                    <span>{{contract.id}}</span>
+                </div>
+                <div class="contract-detail-item">
+                    <span>合同名称：</span>
+                    <span>{{contract.name}}</span>
+                </div>
+                <div class="contract-detail-item">
+                    <span>委托方：</span>
+                    <span>{{contract.client}}</span>
+                </div>
+                <div class="contract-detail-item">
+                    <span>检测类型：</span>
+                    <span>{{contract.type}}</span>
+                </div>
+                <div class="contract-detail-item">
+                    <span>起始时间：</span>
+                    <span>{{contract.startDate | date: 'yyyy-MM-dd'}}</span>
+                </div>
+                <div class="contract-detail-item">
+                    <span>结束时间：</span>
+                    <span>{{contract.endDate | date: 'yyyy-MM-dd'}}</span>
+                </div>
+                <div class="contract-detail-item">
+                    <span>合同类型：</span>
+                    <span>{{contract.type}}</span>
+                </div>
+                <div class="contract-detail-item">
+                    <span>合同状态：</span>
+                    <!--<span ng-bind="getStateText(contract.state)"></span>-->
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" id="inlineRadio0" value="0" ng-model="contract.state"> 未检测
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" ng-model="contract.state"> 检测中
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2" ng-model="contract.state"> 已完成
+                    </label>
+                </div>
+                <div class="contract-detail-item">
+                    <span>检测项目：</span>
+                    <span>{{contract.detectItem}}</span>
+                </div>
+                <div class="contract-detail-item">
+                    <span>结构布点：</span>
+                    <span>{{contract.structurePoint}}</span>
+                </div>
+                <div class="contract-detail-item">
+                    <span>备注：</span>
+                    <span>{{contract.remark}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--合同概况-->
+
+    <!--工程概况-->
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">工程概况</div>
+            <div class="panel-body">
+                <div class="contract-detail-item">
+                    <span>工程名称：</span>
+                    <span>{{project.name}}</span>
+                </div>
+                <div class="contract-detail-item">
+                    <span>建设单位：</span>
+                    <span>{{project.constructionUnit}}</span>
+                </div>
+                <div class="contract-detail-item">
+                    <span>工程地点：</span>
+                    <span>{{project.place}}</span>
+                </div>
+                <div class="contract-detail-item">
+                    <span>结构形式：</span>
+                    <span>{{project.structureType}}</span>
+                </div>
+                <div class="contract-detail-item">
+                    <span>建筑面积：</span>
+                    <span>{{project.areaCount}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--工程概况-->
+
+    <!--工程价款及结算方式-->
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">工程价款及结算方式</div>
+            <div class="panel-body">
+
+                <div class="col-md-4" ng-repeat="item in contract.payment">
+                    <div class="contract-detail-item">
+                        <span>阶段：{{$index + 1}}</span>
+                    </div>
+
+                    <div class="contract-detail-item">
+                        <span>时间节点：</span>
+                        <span>{{item.time}}</span>
+                    </div>
+
+                    <div class="contract-detail-item">
+                        <span>付款金额：</span>
+                        <span>{{item.fee}}</span>
+                    </div>
+
+                    <div class="contract-detail-item">
+                        <span>状态：</span>
+                        <span ng-show="!item.isFinished">未付款</span>
+                        <span ng-show="item.isFinished">已付款</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--结算方式-->
+
+    <!--合同附件-->
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">附件</div>
+            <div class="panel-body">
+                <div class="contract-detail-item">
+                    <span><a class="btn btn-primary" ng-href="{{contract.attachmentLink}}" target="_blank" data-ng-disabled="noAttachment">附件下载</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--合同附件-->
+
+    <!-- 合同操作 -->
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading text-center">
+                <button class="btn btn-danger" ng-click="deleteContract(contract._id)">删除合同</button>
+                <button class="btn btn-info" ng-click="back()">返  回</button>
+            </div>
+        </div>
+    </div>
+    <!-- 合同操作 -->
+</div>

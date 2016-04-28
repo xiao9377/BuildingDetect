@@ -1,0 +1,32 @@
+<div class="col-md-10">
+    <!--report table start-->
+    <table class="table table-striped table-bordered table-hover table-contract">
+        <thead>
+        <tr>
+            <th class="text-center th-index">序号</th>
+            <th class="text-center th-file-name">文件名</th>
+            <th class="text-center th-file-time">时间</th>
+            <th class="text-center th-file-attachment">附件</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="file in files">
+            <td class="text-center">
+                <span>{{($index + 1) + (currentPage -1) * itemsPerPage}}</span>
+            </td>
+            <td class="text-center">{{file.theme}}</td>
+            <td class="text-center">{{file.date | date: 'yyyy-MM-dd'}}</td>
+            <td class="text-center"><a class="btn" data-ng-disabled="noAttachment(file.attachment)" ng-href="{{file.attachmentLink}}" target="_blank" style="padding: 0"><span class="glyphicon glyphicon-download-alt"></span></a></td>
+        </tr>
+        </tbody>
+    </table>
+    <!--report table end-->
+
+    <!--pagination begin-->
+    <div class="text-center">
+        <pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize"
+                    boundary-links="true" rotate="false" num-pages="numPages" previous-text="上一页"
+                    next-text="下一页" first-text="首页" last-text="尾页" items-per-page="itemsPerPage"></pagination>
+    </div>
+    <!--pagination end-->
+</div>

@@ -1,0 +1,695 @@
+/*
+    html style(modifed by yao)
+*/
+body {
+    background-color: whitesmoke;
+}
+
+.error {
+    color: red;
+}
+
+/*------------------------------------
+    checkbox style
+------------------------------------*/
+@keyframes hover-color {
+    from {
+        border-color: #c0c0c0;
+    }
+    to {
+        border-color: #3e97eb;
+    }
+}
+
+.magic-radio,
+.magic-checkbox {
+    position: absolute;
+    display: none;
+}
+
+.magic-radio[disabled],
+.magic-checkbox[disabled] {
+    cursor: not-allowed;
+}
+
+.magic-radio + label,
+.magic-checkbox + label {
+    position: relative;
+    display: block;
+    padding-left: 30px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.magic-radio + label:hover:before,
+.magic-checkbox + label:hover:before {
+    animation-duration: 0.4s;
+    animation-fill-mode: both;
+    animation-name: hover-color;
+}
+
+.magic-radio + label:before,
+.magic-checkbox + label:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    content: '';
+    border: 1px solid #c0c0c0;
+}
+
+.magic-radio + label:after,
+.magic-checkbox + label:after {
+    position: absolute;
+    display: none;
+    content: '';
+}
+
+.magic-radio[disabled] + label,
+.magic-checkbox[disabled] + label {
+    cursor: not-allowed;
+    color: #e4e4e4;
+}
+
+.magic-radio[disabled] + label:hover, .magic-radio[disabled] + label:before, .magic-radio[disabled] + label:after,
+.magic-checkbox[disabled] + label:hover,
+.magic-checkbox[disabled] + label:before,
+.magic-checkbox[disabled] + label:after {
+    cursor: not-allowed;
+}
+
+.magic-radio[disabled] + label:hover:before,
+.magic-checkbox[disabled] + label:hover:before {
+    border: 1px solid #e4e4e4;
+    animation-name: none;
+}
+
+.magic-radio[disabled] + label:before,
+.magic-checkbox[disabled] + label:before {
+    border-color: #e4e4e4;
+}
+
+.magic-radio:checked + label:before,
+.magic-checkbox:checked + label:before {
+    animation-name: none;
+}
+
+.magic-radio:checked + label:after,
+.magic-checkbox:checked + label:after {
+    display: block;
+}
+
+.magic-radio + label:before {
+    border-radius: 50%;
+}
+
+.magic-radio + label:after {
+    top: 6px;
+    left: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #3e97eb;
+}
+
+.magic-radio:checked + label:before {
+    border: 1px solid #3e97eb;
+}
+
+.magic-radio:checked[disabled] + label:before {
+    border: 1px solid #c9e2f9;
+}
+
+.magic-radio:checked[disabled] + label:after {
+    background: #c9e2f9;
+}
+
+.magic-checkbox + label:before {
+    border-radius: 3px;
+}
+
+.magic-checkbox + label:after {
+    top: 2px;
+    left: 7px;
+    box-sizing: border-box;
+    width: 6px;
+    height: 12px;
+    transform: rotate(45deg);
+    border-width: 2px;
+    border-style: solid;
+    border-color: #fff;
+    border-top: 0;
+    border-left: 0;
+}
+
+.magic-checkbox:checked + label:before {
+    border: #3e97eb;
+    background: #3e97eb;
+}
+
+.magic-checkbox:checked[disabled] + label:before {
+    border: #c9e2f9;
+    background: #c9e2f9;
+}
+
+/*---------------------------------
+       login style start
+----------------------------------*/
+#loginBg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    min-width: 600px;
+    min-height: 600px;
+    z-index: -1;
+}
+
+#loginForm {
+    padding-top: 15%;
+}
+
+#loginForm table {
+    box-shadow: 0 1px 1px 1px #333;
+    border-radius: 20px;
+}
+
+#loginForm table h1 {
+    color: white;
+    font-family: "楷体", "Helvetica", "Arial", sans-serif;
+}
+
+#loginForm #toLogin{
+    margin-left: 202px;
+}
+#loginForm #toRegister{
+    position: relative;
+    padding-left: 62px;
+}
+/*---------------------------------
+       login style end
+----------------------------------*/
+
+/*---------------------------------
+       header style start
+---------------------------------*/
+a {
+    cursor: pointer;
+}
+
+/* .main(modified by yao) */
+.main {
+    /*min-width: 1100px;*/
+    width: 85%;
+    margin-top: 70px;
+    padding: 20px;
+    /*padding-left: 0px;*/
+    /*padding-right: 0px;*/
+    border: whitesmoke solid 1px;
+    overflow: hidden;
+    background: white;
+}
+
+/*---------------------------------
+     header style end
+---------------------------------*/
+
+/*---------------------------------
+        navigation start( modified by yao )
+---------------------------------*/
+.logo-box {
+    width: 222px;
+    height: 50px;
+    float: left;
+}
+
+#logo {
+    width: 222px;
+    height: 50px;
+}
+
+.top-navbar {
+    width: 85%;
+    background: #4572A9;
+}
+
+.navbar-collapse {
+    margin-left: 5%;
+}
+
+.navbar-item li a {
+    font-size: 18px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: white;
+    /*background-color: #4275b3;*/
+    /*padding: 3px 19px;*/
+    /*margin: 9px;*/
+    /*border-radius: 15px;*/
+    /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);*/
+}
+
+.navbar-default .navbar-nav > li > a.warning {
+    color: #FF8631;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: white;
+    background-color: #53B5DA;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.navbar-default .navbar-nav > li > a:focus {
+    color: white;
+    background-color: #53B5DA;
+    /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);*/
+}
+
+#user-box {
+    float: right;
+    margin-top: 15px;
+    margin-right: 20px;
+    color: white;
+}
+
+#user-box a {
+    color: white;
+    margin-right: 10px;
+}
+
+#user-box span.glyphicon-user {
+    margin-right: 5px;
+    top: 2px;
+}
+
+/*---------------------------------
+        navigation end
+---------------------------------*/
+
+/*---------------------------------
+    home style start
+---------------------------------*/
+.home {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.home .content-section {
+    padding-left: 0px;
+}
+
+.home .content-section-right {
+    padding-right: 0px;
+}
+
+.home .title {
+    height: 25px;
+    color: white;
+    background-color: #7BA3D4;
+    text-align: center;
+    padding-top: 4px;
+    margin-bottom: 10px;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.85);
+}
+
+.home .text {
+    min-height: 200px;
+    margin: 5px 0;
+    padding: 10px;
+}
+
+.home .text li {
+    margin: 10px 0;
+    list-style: none;
+}
+
+.home .hot-site .hot-site-item {
+    width: 120px;
+    position: relative;
+    float: left;
+}
+
+.text .other-site li {
+    border-bottom: solid 1px #D8D8D8;
+    width: 270px;
+}
+
+.home .other-site-item a {
+    outline: 0;
+    text-decoration: none;
+    /*padding-left: 25px;*/
+    display: inline-block;
+    color: #000;
+    font-size: 16px;
+}
+
+.home .other-site-item a:hover {
+    color: red;
+}
+
+.hot-site .hot-site-item a {
+    outline: 0;
+    text-decoration: none;
+    padding-left: 25px;
+    display: inline-block;
+    color: #000;
+}
+
+.hot-site .hot-site-item a:hover {
+    color: red;
+}
+
+#baidu-link {
+    background: url("../images/defaultIcon.png") no-repeat 2px -198px;
+}
+
+#weibo-link {
+    background: url("../images/defaultIcon.png") no-repeat 2px -278px;
+}
+
+#fenghuang-link {
+    background: url("../images/defaultIcon.png") no-repeat 2px -238px;
+}
+
+#hao123-link {
+    background: url("../images/hao123.png") no-repeat;
+}
+
+#tx-link {
+    background: url("../images/defaultIcon.png") no-repeat 2px -38px;
+}
+
+#youku-link {
+    background: url("../images/defaultIcon.png") no-repeat 2px -398px;
+}
+
+#tianmao-link {
+    background: url("../images/tmall.png") no-repeat;
+}
+
+#taobao-link {
+    background: url("../images/defaultIcon.png") no-repeat 2px -358px;
+}
+
+#jingdong-link {
+    background: url("../images/jd.png") no-repeat;
+}
+
+#wangyi-link {
+    background: url("../images/wangyi.png") no-repeat;
+}
+
+#sohu-link {
+    background: url("../images/sohu.png") no-repeat;
+}
+
+#kuaidi-link {
+    background: url("../images/hao123.png") no-repeat;
+}
+
+#apple-link {
+    background: url("../images/apple.png") no-repeat;
+}
+
+#yidong-link {
+    background: url("../images/yidong.png") no-repeat;
+}
+
+#liantong-link {
+    background: url("../images/liantong.png") no-repeat;
+}
+
+#zhilian-link {
+    background: url("../images/zhilian.png") no-repeat;
+}
+
+#toutiao-link {
+    background: url("../images/toutiao.png") no-repeat;
+}
+
+#huanqiu-link {
+    background: url("../images/huanqiu.png") no-repeat;
+}
+
+/*---------------------------------
+   home style end
+---------------------------------*/
+
+/*
+  contract style start
+*/
+.item-gap {
+    background: #f2f2f2;
+    width: 100%;
+    height: 36px;
+    vertical-align: middle;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.item-gap .more-year {
+    float: left;
+    font-size: 15px;
+    margin-top: 9px;
+}
+
+.item-gap .year-item {
+    float: left;
+    margin-right: 20px;
+    margin-top: 9px;
+}
+
+.table-contract {
+    margin-top: 5px;
+}
+
+td a i {
+    font-size: 18px;
+}
+
+/*
+  contract style end
+*/
+
+/*---------------------------------
+        sidebar styles
+----------------------------------*/
+.panel-group {
+    max-height: 100%;
+    min-width: 135px;
+    overflow: auto;
+}
+
+.leftMenu {
+    margin-right: 10px;
+}
+
+.panel-title {
+    font-weight: bold;
+    font-size: 20px;
+    /*text-shadow: 3px 3px 3px #ccc;*/
+}
+
+.leftMenu .panel-heading {
+    background: #f2f2f2;
+    font-size: 14px;
+    padding-left: 15px;
+    height: 36px;
+    line-height: 36px;
+    color: #666666;
+    position: relative;
+    cursor: pointer;
+}
+
+.leftMenu .panel-heading span {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+}
+
+/*.leftMenu .list-group-item {*/
+/*padding-left: 20px;*/
+/*}*/
+
+.leftMenu .menu-item-left {
+    font-family: "楷体";
+    font-size: large;
+    font-weight: bold;
+    padding: 1px;
+    cursor: pointer;
+}
+
+.leftMenu .menu-item-left span {
+    margin-left: 6px;
+}
+
+/*
+contract input style
+*/
+.contract-input {
+    padding: 0px;
+}
+
+.contract-input .contract-input-section {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.contract-input .panel-heading {
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+.contract-upload {
+    background: #fff;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.contract-input a {
+    font-size: 16px;
+}
+
+.contract-input .img-contract-upload {
+    width: 20px;
+    height: 20px;
+}
+
+.contract-basic-info {
+    padding-top: 15px;
+}
+
+.contract-basic-info .contract-client {
+    margin-top: 6px;
+}
+
+.contract-file-upload {
+    float: left;
+}
+
+.project-general-info {
+}
+
+.panel-body-row-first {
+    padding: 0px;
+}
+
+.panel-body-row {
+    padding: 0px;
+    margin-top: 10px;
+}
+
+.add-panel-body-row {
+    padding: 0px;
+    margin-top: 3px;
+}
+
+.panel-submit {
+    margin-top: 20px;
+}
+
+.checkbox-fee-area {
+    margin-bottom: 10px;
+}
+
+.project-price-info {
+    margin-top: 0px;
+}
+
+.project-pay-mode {
+    margin-top: 0px;
+}
+
+/*
+    contract list page
+*/
+.table > tbody > tr.contractWarning {
+    background-color: #F0AD4E;
+    color: white;
+}
+
+/*
+    contract detail page
+*/
+.contract-detail .contract-operate {
+    margin-bottom: 10px;
+}
+
+.contract-detail .panel-heading {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.contract-detail .contract-detail-item {
+    margin-bottom: 6px;
+}
+
+.contract-detail .add-box input.new {
+    width: 30%;
+}
+
+/*
+    employee add page
+*/
+.margin-top10 {
+    margin-top: 10px;
+}
+
+.panel-heading {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.required-info {
+    color: red;
+    margin-left: 3px;
+}
+
+/*
+    employee detail page
+*/
+.employee-detail .employee-table td {
+    width: 80px;
+    text-align: center;
+}
+
+.employee-detail .table > tbody > tr > td.employee-label {
+!important;
+    width: 50px;
+    font-weight: bold;
+    background-color: rgb(193, 193, 193);
+    vertical-align: middle;
+}
+
+/*
+    device list page
+*/
+.table > tbody > tr.deviceWarning {
+    background-color: #F0AD4E;
+    color: white;
+}
+
+/*
+    device detail page
+*/
+.device-detail .device-table td {
+    width: 80px;
+    text-align: center;
+}
+
+.device-detail .table > tbody > tr > td.device-label {
+!important;
+    width: 50px;
+    font-weight: bold;
+    background-color: rgb(193, 193, 193);
+    vertical-align: middle;
+}
+
+/*
+       charge input page
+*/
+.panel-payment {
+    margin-top: 20px;
+}

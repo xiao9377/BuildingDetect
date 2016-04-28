@@ -1,0 +1,116 @@
+<div class="employee-detail col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            员工详细信息
+            <a style="float: right" ng-click="editEmployee()"><span class="glyphicon glyphicon-edit">编辑</span></a>
+        </div>
+        <div class="panel-body">
+            <div class="employee-table col-md-8 col-md-offset-2">
+                <table class="table table-bordered" ng-show="!isEdit">
+                    <tbody>
+                    <tr>
+                        <td class="employee-label"><span>姓  名</span></td>
+                        <td>
+                            <span>{{employee.name}}</span>
+                        </td>
+                        <td class="employee-label"><span>性  别</span></td>
+                        <td><span>{{employee.sex}}</span></td>
+                    </tr>
+                    <tr>
+                        <td class="employee-label"><span>年  龄</span></td>
+                        <td><span>{{employee.age}}</span></td>
+                        <td class="employee-label"><span>职  务</span></td>
+                        <td><span>{{employee.job}}</span></td>
+                    </tr>
+                    <tr>
+                        <td class="employee-label"><span>职  称</span></td>
+                        <td><span>{{employee.title}}</span></td>
+                        <td class="employee-label"><span>工  龄</span></td>
+                        <td><span>{{employee.seniority}}</span></td>
+                    </tr>
+                    <tr>
+                        <td class="employee-label"><span>文化程度</span></td>
+                        <td colspan='3'><span>{{employee.education}}</span></td>
+                    </tr>
+                    <tr>
+                        <td class="employee-label"><span>所学专业</span></td>
+                        <td colspan='3'><span>{{employee.major}}</span></td>
+                    </tr>
+                    <tr>
+                        <td class="employee-label"><span>现在部门岗位</span></td>
+                        <td colspan='3'><span>{{employee.nowPost}}</span></td>
+                    </tr>
+                    <tr>
+                        <td class="employee-label"><span>联系方式</span></td>
+                        <td colspan='3'><span>{{employee.contact}}</span></td>
+                    </tr>
+                    <tr>
+                        <td class="employee-label"><span>附件下载</span></td>
+                        <td colspan='3'><a class="btn btn-primary" data-ng-disabled="noAttachment" ng-href="{{employee.attachmentLink}}" target="_blank">附件下载</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <form role="form" name="employeeEditForm">
+                    <table class="table table-bordered" ng-show="isEdit">
+                        <tbody>
+                        <tr>
+                            <td class="employee-label"><span>姓  名</span></td>
+                            <td>
+                                <input type="text" class="form-control" required ng-model="employee.name"/>
+                            </td>
+                            <td class="employee-label"><span>性  别</span></td>
+                            <td><input type="text" class="form-control" required ng-model="employee.sex"/></td>
+                        </tr>
+                        <tr>
+                            <td class="employee-label"><span>年  龄</span></td>
+                            <td><input type="number" class="form-control" required ng-model="employee.age"/></td>
+                            <td class="employee-label"><span>职  务</span></td>
+                            <td><input type="text" class="form-control" ng-model="employee.job"/></td>
+                        </tr>
+                        <tr>
+                            <td class="employee-label"><span>职  称</span></td>
+                            <td><input type="text" class="form-control" ng-model="employee.title"/></td>
+                            <td class="employee-label"><span>工  龄</span></td>
+                            <td><input type="number" class="form-control" ng-model="employee.seniority"/></td>
+                        </tr>
+                        <tr>
+                            <td class="employee-label"><span>文化程度</span></td>
+                            <td colspan='3'><input type="text" class="form-control" ng-model="employee.education"/></td>
+                        </tr>
+                        <tr>
+                            <td class="employee-label"><span>所学专业</span></td>
+                            <td colspan='3'><input type="text" class="form-control" ng-model="employee.major"/></td>
+                        </tr>
+                        <tr>
+                            <td class="employee-label"><span>现在部门岗位</span></td>
+                            <td colspan='3'><input type="text" class="form-control" ng-model="employee.nowPost"/></td>
+                        </tr>
+                        <tr>
+                            <td class="employee-label"><span>联系方式</span></td>
+                            <td colspan='3'><input type="text" class="form-control" ng-model="employee.contact"/></td>
+                        </tr>
+                        <tr>
+                            <td class="employee-label"><span>附件上传</span></td>
+                            <td colspan='3'><input type="file" nv-file-select="" uploader="uploader"/></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="text-center" ng-show="!isEdit">
+                <button class="btn btn-danger" ng-click="deleteEmployee(employee._id)">删除员工</button>
+                <button class="btn btn-info" ng-click="back()">返  回</button>
+            </div>
+            <div class="text-center" ng-show="isEdit">
+                <button class="btn btn-success" data-ng-disabled="employeeEditForm.$invalid" ng-click="updateCheck()">确  定</button>
+                <button class="btn btn-info" ng-click="cancel()">取  消</button>
+            </div>
+        </div>
+    </div>
+</div>

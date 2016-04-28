@@ -1,0 +1,46 @@
+<div class="col-md-10">
+    <div class="panel panel-default">
+        <div class="panel-heading">添加文件</div>
+        <div class="panel-body">
+            <form name="addFileForm" class="form-horizontal" role="form">
+
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">附件上传</label>
+                    <div class="col-md-8">
+                        <input type="file" nv-file-select="" uploader="uploader"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="add-file-theme" class="col-lg-2 col-sm-2 control-label">文件名*</label>
+                    <div class="col-lg-4 col-md-5">
+                        <input type="text" class="form-control" id="add-file-theme" name="fileTheme"
+                               ng-model="file.theme" required>
+                        <small class="error"
+                               ng-show="addFileForm.fileTheme.$error.required && addFileForm.fileTheme.$dirty">
+                            文件名称不能为空
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="add-file-date" class="col-lg-2 col-sm-2 control-label">时间</label>
+
+                    <div class="col-lg-3 col-md-4">
+                        <ng-bs3-datepicker id="add-file-date" data-ng-model='file.date' date-format="YYYY-MM-DD"
+                                           language="en"/>
+                    </div>
+                </div>
+            </form>
+            <div class="col-md-10">
+                <div class="text-center">
+                    <button class="btn btn-success" data-ng-disabled="addFileForm.$invalid"
+                            ng-click="checkInput()">提
+                        交
+                    </button>
+                    <button class="btn btn-default" ng-click="cancel()">取 消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

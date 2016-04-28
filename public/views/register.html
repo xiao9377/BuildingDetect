@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html ng-app="RegisterApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="../components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../components/angularjs-toaster/toaster.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../icons/logo.ico">
+</head>
+<body ng-controller="RegisterController">
+<div id="loginBg">
+    <img src="../images/loginBg.jpg" height="100%" width="100%">
+</div>
+<form name="loginForm" id="loginForm">
+    <table width="500" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td colspan="3" align="center" style="background-color: #63bdcf; border-radius: 20px 20px 0 0;">
+                <h1>武汉明鉴信息管理系统</h1>
+            </td>
+        </tr>
+        <tr>
+            <td height="20px" colspan="3">
+            </td>
+        </tr>
+        <tr>
+            <td height="37" align="right">
+                <img src="../images/username.png" style="padding-right: 5px"/>
+            </td>
+            <td align="center" width="80">
+                手机号
+            </td>
+            <td height="37">
+                <input name="phone" class="" type="text" id="phone" ng-model="user.phone" required="required"
+                        />
+            </td>
+        </tr>
+        <tr>
+            <td height="50" align="right">
+                <img src="../images/psw.png"/>
+            </td>
+            <td align="center" width="80">
+                密&nbsp;&nbsp;&nbsp;&nbsp;码
+            </td>
+            <td height="50" width="300">
+                <input name="password" class="" type="password" id="password" ng-model="user.password" required
+                       style="float: left;margin-right: 10px;"/>
+            </td>
+        </tr>
+        <!--<tr>-->
+            <!--<td height="43" align="right">-->
+                <!--<img src="../images/identify.png"/>-->
+            <!--</td>-->
+            <!--<td align="center" width="80">-->
+                <!--验证码-->
+            <!--</td>-->
+            <!--<td height="43">-->
+                <!--<input name="validCode" type="text" id="validCode" ng-model="validCode"/>-->
+                <!--<button class="btn btn-default" ng-click="getValidCode()" data-ng-disabled="getCode">获取验证码<span ng-show="afterTime" ng-bind="delay"></span></button>-->
+            <!--</td>-->
+        <!--</tr>-->
+        <tr>
+            <td align="center" colspan="3">
+                <span class="error" ng-bind="err"></span>
+            </td>
+        </tr>
+        <tr>
+            <td height="62" colspan="3" align="center">
+                <button name="register" id="register" ng-click="submit()" class="btn btn-info"><span style="padding: 0 10px">注  册</span></button>
+            </td>
+        </tr>
+    </table>
+</form>
+<script type="text/javascript" src="../components/angular/angular.js"></script>
+<script type="text/javascript" src="../components/angular/angular-route.js"></script>
+<script type="text/javascript" src="../components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../components/ui-bootstrap-tpls-0.11.0.js"></script>
+<script type="text/javascript" src="../components/angularjs-toaster/toaster.js"></script>
+<script type="text/javascript" src="../js/controllers/register.js"></script>
+</body>
+</html>

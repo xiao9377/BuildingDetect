@@ -1,0 +1,113 @@
+<div class="device-detail col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            设备详细信息
+            <a style="float: right" ng-click="editDevice()"><span class="glyphicon glyphicon-edit">编辑</span></a>
+        </div>
+        <div class="panel-body">
+            <div class="device-table col-md-8 col-md-offset-2">
+                <table class="table table-bordered" ng-show="!isEdit">
+                    <tbody>
+                    <tr>
+                        <td class="device-label"><span>序  号</span></td>
+                        <td>
+                            <span>{{device.id}}</span>
+                        </td>
+                        <td class="device-label"><span>检测内容</span></td>
+                        <td><span>{{device.detectContent}}</span></td>
+                    </tr>
+                    <tr>
+                        <td class="device-label"><span>依据标准</span></td>
+                        <td colspan="3"><span>{{device.standard}}</span></td>
+                    </tr>
+                    <tr>
+                        <td class="device-label"><span>设备名称</span></td>
+                        <td><span>{{device.name}}</span></td>
+                        <td class="device-label"><span>设备型号</span></td>
+                        <td><span>{{device.version}}</span></td>
+                    </tr>
+                    <tr>
+                        <td class="device-label"><span>测量范围</span></td>
+                        <td><span>{{device.range}}</span></td>
+                        <td class="device-label"><span>溯源方式</span></td>
+                        <td><span>{{device.method}}</span></td>
+                    </tr>
+                    <tr>
+                        <td class="device-label"><span>有效日期</span></td>
+                        <td colspan='3'><span>{{device.validDate | date: 'yyyy-MM-dd'}}</span></td>
+                    </tr>
+                    <tr>
+                        <td class="device-label"><span>确认结果</span></td>
+                        <td colspan='3'><span>{{device.result}}</span></td>
+                    </tr>
+                    <tr>
+                        <td class="device-label"><span>附件下载</span></td>
+                        <td colspan='3'><a class="btn btn-primary" data-ng-disabled="noAttachment" ng-href="{{device.attachmentLink}}" target="_blank">附件下载</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <form role="form" name="deviceEditForm" ng-show="isEdit">
+                    <table class="table table-bordered" ng-show="isEdit">
+                        <tbody>
+                        <tr>
+                            <td class="device-label"><span>序  号</span></td>
+                            <td>
+                                <input type="text" class="form-control" required ng-model="device.id"/>
+                            </td>
+                            <td class="device-label"><span>检测内容</span></td>
+                            <td><input type="text" class="form-control" required ng-model="device.detectContent"/></td>
+                        </tr>
+                        <tr>
+                            <td class="device-label"><span>依据标准</span></td>
+                            <td colspan="3"><textarea class="form-control" data-ng-model="device.standard"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="device-label"><span>设备名称</span></td>
+                            <td><input type="text" class="form-control" ng-model="device.name" required/></td>
+                            <td class="device-label"><span>设备型号</span></td>
+                            <td><input type="text" class="form-control" ng-model="device.version" required/></td>
+                        </tr>
+                        <tr>
+                            <td class="device-label"><span>测量范围</span></td>
+                            <td><input type="text" class="form-control" ng-model="device.range"/></td>
+                            <td class="device-label"><span>溯源方式</span></td>
+                            <td><input type="text" class="form-control" ng-model="device.method"/></td>
+                        </tr>
+                        <tr>
+                            <td class="device-label"><span>有效日期</span></td>
+                            <td colspan='3'>
+                                <ng-bs3-datepicker data-ng-model='device.validDate'
+                                                   date-format="YYYY-MM-DD"
+                                                   required></ng-bs3-datepicker>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="device-label"><span>确认结果</span></td>
+                            <td colspan='3'><input type="text" class="form-control" ng-model="device.result"/></td>
+                        </tr>
+                        <tr>
+                            <td class="device-label"><span>附件上传</span></td>
+                            <td colspan='3'><input type="file" nv-file-select="" uploader="uploader" /></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="text-center" ng-show="!isEdit">
+                <button class="btn btn-danger" ng-click="deleteDevice(device._id)">删除设备</button>
+                <button class="btn btn-info" ng-click="back()">返 回</button>
+            </div>
+            <div class="text-center" ng-show="isEdit">
+                <button class="btn btn-success" data-ng-disabled="deviceEditForm.$invalid" ng-click="checkUpdate()">确 定</button>
+                <button class="btn btn-info" ng-click="cancel()">取 消</button>
+            </div>
+        </div>
+    </div>
+</div>

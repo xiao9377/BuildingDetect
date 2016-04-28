@@ -1,0 +1,34 @@
+<div class="col-md-10">
+    <!--report table start-->
+    <table class="table table-striped table-bordered table-hover table-contract">
+        <thead>
+        <tr>
+            <th class="text-center th-index">序号</th>
+            <th class="text-center th-project-name">工程名称</th>
+            <th class="text-center th-letter-time">发起时间</th>
+            <th class="text-center th-letter-type">联系单位</th>
+            <th class="text-center th-letter-attach">内容</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="letter in letters">
+            <td class="text-center">
+                <span>{{($index + 1) + (currentPage -1) * itemsPerPage}}</span>
+            </td>
+            <td class="text-center">{{letter.projectName}}</td>
+            <td class="text-center">{{letter.date | date: 'yyyy-MM-dd'}}</td>
+            <td class="text-center">{{letter.contact}}</td>
+            <td class="text-center">{{letter.content}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <!--report table end-->
+
+    <!--pagination begin-->
+    <div class="text-center">
+        <pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize"
+                    boundary-links="true" rotate="false" num-pages="numPages" previous-text="上一页"
+                    next-text="下一页" first-text="首页" last-text="尾页" items-per-page="itemsPerPage"></pagination>
+    </div>
+    <!--pagination end-->
+</div>

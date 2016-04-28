@@ -1,0 +1,100 @@
+<div class="employee-input col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">录入员工信息</div>
+        <div class="panel-body">
+            <form role="form" name="employeeAddForm">
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="employee-name">姓  名<span
+                                class="glyphicon glyphicon-asterisk required-info"></span></span>
+                        <input type="text" class="form-control" aria-describedby="employee-name" required
+                               ng-model="employee.name">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="employee-sex">性  别<span
+                                class="glyphicon glyphicon-asterisk required-info"></span></span>
+                        <input type="text" class="form-control" aria-describedby="employee-sex" ng-model="employee.sex"
+                               required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="employee-age">年  龄<span
+                                class="glyphicon glyphicon-asterisk required-info"></span></span>
+                        <input type="number" class="form-control" aria-describedby="employee-age"
+                               ng-model="employee.age"
+                               required>
+                    </div>
+                </div>
+                <div class="margin-top10 col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="employee-job">职  务</span>
+                        <input type="text" class="form-control" aria-describedby="employee-job" ng-model="employee.job">
+                    </div>
+                </div>
+                <div class="margin-top10 col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="employee-title">职  称</span>
+                        <input type="text" class="form-control" aria-describedby="employee-title"
+                               ng-model="employee.title">
+                    </div>
+                </div>
+                <div class="margin-top10 col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="employee-seniority">工  龄</span>
+                        <input type="number" class="form-control" aria-describedby="employee-seniority"
+                               ng-model="employee.seniority">
+                    </div>
+                </div>
+                <div class="margin-top10 col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="employee-education">文化程度</span>
+                        <input type="text" class="form-control" aria-describedby="employee-education"
+                               ng-model="employee.education">
+                    </div>
+                </div>
+                <div class="margin-top10 col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="employee-major">所学专业</span>
+                        <input type="text" class="form-control" aria-describedby="employee-major"
+                               ng-model="employee.major">
+                    </div>
+                </div>
+                <div class="margin-top10 col-md-12">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="employee-nowPost">现在部门岗位</span>
+                        <input type="text" class="form-control" aria-describedby="employee-nowPost"
+                               ng-model="employee.nowPost">
+                    </div>
+                </div>
+                <div class="margin-top10 col-md-12">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="employee-contact">联系方式</span>
+                        <input type="text" class="form-control" aria-describedby="employee-contact"
+                               ng-model="employee.contact">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">上传附件</div>
+        <div class="panel-body">
+            <div class="col-md-12">
+                <input type="file" nv-file-select="" uploader="uploader"/>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="text-center">
+                <button class="btn btn-info" data-ng-disabled="employeeAddForm.$invalid" ng-click="checkPost()">提 交</button>
+                <button class="btn btn-default" ng-click="cancel()">取 消</button>
+            </div>
+        </div>
+    </div>
+</div>

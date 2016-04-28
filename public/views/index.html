@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="../components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../components/angularjs-toaster/toaster.css">
+    <link rel="stylesheet" href="../components/jqcloud2/dist/jqcloud.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="stylesheet" href="../components/angular-bootstrap3-datepicker/ng-bs3-datepicker.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../icons/logo.ico">
+
+</head>
+<body>
+
+<toaster-container
+        toaster-options="{'time-out':2000,'close-button':true,'position-class':'toast-top-right'}"></toaster-container>
+
+<!--此处修改为顶部固定导航栏-->
+<!--header logo begin-->
+<!--<div id="header">-->
+<!--<a id="logo" ui-sref="index"></a>-->
+<!--</div>-->
+<!--header logo end-->
+
+<!--navigation bar begin-->
+<nav class="container navbar navbar-default navbar-fixed-top top-navbar" role="navigation"
+     ng-controller="NavBarController">
+    <div class="logo-box">
+        <img id="logo" src="../images/logo.png"/>
+    </div>
+    <div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-left navbar-main-collapse">
+            <ul class="nav navbar-nav navbar-item">
+                <li ng-class="{'active':navItems.index}" ng-click="changeState('index')"><a ui-sref="index">首&nbsp;页</a>
+                </li>
+                <li ng-class="{'active':navItems.contractInput}" ng-click="changeState('contractInput')"><a ui-sref="contractInput"
+                        >合同录入</a></li>
+                <li ng-class="{'active':navItems.contract}" ng-click="changeState('contract')"><a ui-sref="contract" ng-class="{warning : contractWarning}" >业务管理</a>
+                </li>
+                <li ng-class="{'active':navItems.employee}" ng-click="changeState('employee')"><a ui-sref="employee">人力资源</a>
+                </li>
+                <li ng-class="{'active':navItems.device}" ng-click="changeState('device')"><a ui-sref="device" ng-class="{warning : deviceWarning}" >设备管理</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--<div id="user-box">-->
+        <!--<a href="/login"><span class="glyphicon glyphicon-user"></span>登录</a>-->
+    <!--</div>-->
+    <div id="user-box">
+        <a ng-click="logout()">退出</a>
+        <span class="glyphicon glyphicon-user"></span><span ng-bind="userName"></span>
+    </div>
+</nav>
+<!--navigation bar end-->
+
+<!--content view-->
+<div class="container main">
+    <div ui-view></div>
+</div>
+
+<script src="../components/requirejs/require.js" data-main="../js/main.js"></script>
+</body>
+</html>
